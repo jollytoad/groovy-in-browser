@@ -22,7 +22,7 @@ dev
 All dependencies for these tools will be downloaded and installed for use within
 this project only, so you can now use `deno` and `mvn` here.
 
-## Start the sever
+## Start the server
 
 ```sh
 deno task start
@@ -33,9 +33,10 @@ Initially this will fetch all dependency jars via maven, into
 
 Once ready, it'll dump it's URL to the console, open this in a browser.
 
-It should now attempt to run the example Groovy code in the browser.
+It should now attempt to setup CheerpJ and run the example Groovy code in the
+browser.
 
-See [frontend.js](./frontend.js) for this.
+See [frontend.js](./app/static/frontend.js) for this.
 
 ## Changing jar dependencies
 
@@ -49,4 +50,5 @@ you don't need to restart the server.
 
 ## Changing the Groovy code
 
-Just edit and save `frontend.js` and refresh the browser (no restart required).
+Just edit and save [frontend.js](./app/static/frontend.js) and refresh the
+browser (no restart required).
