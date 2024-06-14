@@ -4,6 +4,7 @@
     "specifiers": {
       "jsr:@http/discovery@0.15.0": "jsr:@http/discovery@0.15.0",
       "jsr:@http/generate@^0.15.0": "jsr:@http/generate@0.15.0",
+      "jsr:@http/host-deno-deploy@^0.15.0": "jsr:@http/host-deno-deploy@0.15.0",
       "jsr:@http/host-deno-local@^0.15.0": "jsr:@http/host-deno-local@0.15.0",
       "jsr:@http/interceptor@0.15.0": "jsr:@http/interceptor@0.15.0",
       "jsr:@http/interceptor@^0.15.1": "jsr:@http/interceptor@0.15.1",
@@ -39,6 +40,13 @@
           "jsr:@http/route@0.15.0",
           "jsr:@std/path@^0.225.2",
           "npm:ts-poet@^6.9.0"
+        ]
+      },
+      "@http/host-deno-deploy@0.15.0": {
+        "integrity": "3b29453478303d202b52f03e999b6c097dbe436c72d29c744b0a79cede4bd59b",
+        "dependencies": [
+          "jsr:@http/interceptor@0.15.0",
+          "jsr:@http/route@0.15.0"
         ]
       },
       "@http/host-deno-local@0.15.0": {
@@ -139,6 +147,7 @@
     "dependencies": [
       "jsr:@http/discovery@^0.15.0",
       "jsr:@http/generate@^0.15.0",
+      "jsr:@http/host-deno-deploy@^0.15.0",
       "jsr:@http/host-deno-local@^0.15.0",
       "jsr:@http/interceptor@^0.15.1",
       "jsr:@http/response@^0.15.0",

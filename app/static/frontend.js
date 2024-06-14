@@ -1,9 +1,15 @@
 await cheerpjInit();
 
+const baseUrl = location.href.replace(/\/$/, "");
+
 const code = `
 import kong.unirest.Unirest
 
-def response = Unirest.get("http://localhost:8000/hello.json").asString().getBody()
+def url = "${baseUrl}/hello.json"
+
+println url
+
+def response = Unirest.get(url).asString().getBody()
 `;
 
 const classpath = await (await fetch(`/classpath`)).text();

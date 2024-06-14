@@ -9,5 +9,3 @@ await generateRoutes();
 const handler = lazy(import.meta.resolve("./handler.ts"));
 
 await Deno.serve(await init(handler)).finished;
-
-export default {};

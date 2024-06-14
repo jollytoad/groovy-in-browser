@@ -22,25 +22,31 @@ dev
 All dependencies for these tools will be downloaded and installed for use within
 this project only, so you can now use `deno` and `mvn` here.
 
-## Initial setup
-
-You'll need to fetch the jars required to the Groovy scripts:
-
-```sh
-deno task jars
-```
-
-This will use maven to fetch the jars into `target/dependency`, these deps are
-defined in the [pom.xml](./pom.xml).
-
 ## Start the sever
 
 ```sh
 deno task start
 ```
 
-It'll dump it's URL to the console, open this in a browser.
+Initially this will fetch all dependency jars via maven, into
+`target/dependency`.
+
+Once ready, it'll dump it's URL to the console, open this in a browser.
 
 It should now attempt to run the example Groovy code in the browser.
 
 See [frontend.js](./frontend.js) for this.
+
+## Changing jar dependencies
+
+If you want to experiment with different jars, modifiy the pom.xml and then run:
+
+```sh
+deno task jars
+```
+
+you don't need to restart the server.
+
+## Changing the Groovy code
+
+Just edit and save `frontend.js` and refresh the browser (no restart required).

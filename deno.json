@@ -1,21 +1,37 @@
 {
   "tasks": {
-    "jars": "mvn dependency:copy-dependencies",
+    "jars": "deno task clean && mvn dependency:copy-dependencies",
     "clean": "rm -rf target",
     "gen": "./scripts/gen.ts",
     "start": "deno task jars && ./app/dev.ts",
+    "start:prod": "./app/main.ts",
     "check": "deno check **/*.ts",
     "ok": "deno fmt && deno lint && deno task check",
     "outdated": "deno run --allow-read=. --allow-net=jsr.io,registry.npmjs.org jsr:@check/deps",
-    "lock": "rm -f deno.lock && deno check --reload **/*.ts"
+    "lock": "rm -f deno.lock && deno check --reload **/*.ts",
+    "deploy": "deno run --allow-sys --allow-net --allow-read --allow-write --allow-env jsr:@deno/deployctl deploy"
   },
   "imports": {
     "@http/discovery": "jsr:@http/discovery@^0.15.0",
     "@http/generate": "jsr:@http/generate@^0.15.0",
+    "@http/host-deno-deploy": "jsr:@http/host-deno-deploy@^0.15.0",
     "@http/host-deno-local": "jsr:@http/host-deno-local@^0.15.0",
     "@http/interceptor": "jsr:@http/interceptor@^0.15.1",
     "@http/response": "jsr:@http/response@^0.15.0",
     "@http/route": "jsr:@http/route@^0.15.0",
     "@http/route-deno": "jsr:@http/route-deno@^0.15.0"
+  },
+  "fmt": {
+    "exclude": [
+      "app/routes.ts"
+    ]
+  },
+  "deploy": {
+    "project": "avst-groovy-in-browser",
+    "exclude": [
+      "**/node_modules"
+    ],
+    "include": [],
+    "entrypoint": "app/main.ts"
   }
 }
